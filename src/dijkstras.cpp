@@ -1,4 +1,5 @@
 #include "dijkstras.h"
+#include <algorithm>
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous) {
     int vertices = G.numVertices;
@@ -18,7 +19,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
         visited[u] = true;
         for (const Edge& neighbor : G[u]) 
         {
-            int v = neighbor.dst
+            int v = neighbor.dst;
             int weight = neighbor.weight;
             if (!visited[v] && dist_list[u] + weight < dist_list[v]) 
             {
@@ -33,7 +34,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
 vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination) {
     vector<int> path;
-    for (int i = destination; i != -1; i = previous[at]) 
+    for (int i = destination; i != -1; i = previous[i]) 
     {
         path.push_back(i);
     }
