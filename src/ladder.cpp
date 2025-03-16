@@ -3,7 +3,7 @@
 void error(string word1, string word2, string msg)
  
 {
-    cerr << "Error: " << message << "  " << word1 << word2 << endl;
+    cerr << "Error: " << msg << "  " << word1 << word2 << endl;
 }
 
 void load_words(set<string> &word_list, const string& file_name) 
